@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour 
 {	
 	public float speed;
-	public GUIText countText;
-	public GUIText winText;
+	public Text countText;
+	public Text winText;
 	private int count;
 	private int numberOfGameObjects;
 	
@@ -24,7 +25,7 @@ public class PlayerController : MonoBehaviour
 		
 		Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 		
-		rigidbody.AddForce (movement * speed * Time.deltaTime);
+		GetComponent<Rigidbody>().AddForce (movement * speed * Time.deltaTime);
 	}
 	
 	void OnTriggerEnter(Collider other) 
